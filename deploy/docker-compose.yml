@@ -19,7 +19,6 @@ services:
       - SERVER_PASSWORD=${SERVER_PASSWORD}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - MAX_PLAYERS=${MAX_PLAYERS}
-      - BANNED_PLAYER_LIST=${BANNED_PLAYER_LIST}
     ports:
       # Port for connections from game client
       - "7778:7778/udp"
