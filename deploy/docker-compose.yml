@@ -21,7 +21,7 @@ services:
       - MAX_PLAYERS=${MAX_PLAYERS}
     ports:
       # Port for connections from game client
-      - "7778:7778/udp"
+      - "7777:7777/udp"
       # Steam's server-list port
       - "27015:27015/udp"
     networks:
