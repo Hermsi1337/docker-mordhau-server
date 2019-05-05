@@ -19,7 +19,7 @@ You can configure the initial configuration for your mordhau-server by using env
 #### `docker-run`
 I personally preffer `docker-compose` but for those of you, who want to run their own Mordhau-server without any "zip and zap", here you go:
 ```bash
-$ docker run -d --name="mordhau_server" --restart=always -v "${HOME}/mordhau-server:/app" -e SESSION_NAME="Awesome Mordhau is awesome" -e ADMIN_PASSWORD="FooB4r"
+$ docker run -d --name="mordhau_server" --restart=always -v "${HOME}/mordhau-server:/app" -p 7777:7777 -p 27015:27015 -e SESSION_NAME="Awesome Mordhau is awesome" -e ADMIN_PASSWORD="FooB4r"
 ```
 
 #### `docker-compose`
@@ -48,7 +48,7 @@ services:
       - MAX_PLAYERS=${MAX_PLAYERS}
     ports:
       # Port for connections from game client
-      - "7778:7778/udp"
+      - "7777:7777/udp"
       # Steam's server-list port
       - "27015:27015/udp"
     networks:
