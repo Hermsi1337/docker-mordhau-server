@@ -22,7 +22,7 @@ script: |
             --no-cache \
             --quiet \
             --pull \
-            --build-arg DEBIAN_VERSION=${DEBIAN_VERSION}
+            --build-arg DEBIAN_VERSION=${DEBIAN_VERSION} \
             --tag "${IMAGE_NAME}:debian${DEBIAN_VERSION}" \
             --tag "${IMAGE_NAME}:latest" \
             --file "${TRAVIS_BUILD_DIR}/Dockerfile" \
