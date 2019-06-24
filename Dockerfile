@@ -1,4 +1,5 @@
-FROM        debian:stable-slim
+ARG         DEBIAN_VERSION="${DEBIAN_VERSION:-stretch}"
+FROM        debian:${DEBIAN_VERSION}-slim
 
 LABEL       MAINTAINER="https://github.com/Hermsi1337/"
 
