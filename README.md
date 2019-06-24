@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Hermsi1337/docker-mordhau-server.svg?branch=master)](https://travis-ci.com/Hermsi1337/docker-mordhau-server)
+
 # Mordhau-Server dockerized
 
 ## Usage
