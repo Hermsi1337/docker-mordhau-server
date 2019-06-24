@@ -1,0 +1,35 @@
+sudo: required
+
+language: bash
+
+addons:
+  apt:
+    packages:
+      - docker-ce
+      - w3m
+
+env:
+  global:
+    - IMAGE="ark-server"
+    - IMAGE_NAME="${DOCKER_USER}/${IMAGE}"
+    - DEBIAN_VERSION="stretch"
+
+before_script:
+  - sudo sysctl -w net.ipv4.ip_forward=1
+
+script: |
+  find . -name "*.sh" -print0 | xargs -0 -r -n1 bash -n
+  docker build \
+            --no-cache \
+            --quiet \
+            --pull \
+            --build-arg DEBIAN_VERSION=${DEBIAN_VERSION}
+            --tag "${IMAGE_NAME}:debian${DEBIAN_VERSION}" \
+            --tag "${IMAGE_NAME}:latest" \
+            --file "${TRAVIS_BUILD_DIR}/Dockerfile" \
+            "${TRAVIS_BUILD_DIR}"
+  if [[ "${TRAVIS_BRANCH}" == "master" ]] && [[ "${TRAVIS_PULL_REQUEST}" == "false" ]]; then
+    docker login -u "${DOCKER_USER}" -p "${DOCKER_PASSWORD}"
+    docker push "${IMAGE_NAME}:debian-${DEBIAN_VERSION}"
+    docker push "${IMAGE_NAME}:latest"
+  fi
