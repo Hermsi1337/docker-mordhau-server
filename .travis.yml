@@ -9,7 +9,7 @@ addons:
 
 env:
   global:
-    - IMAGE="ark-server"
+    - IMAGE="mordhau-server"
     - IMAGE_NAME="${DOCKER_USER}/${IMAGE}"
     - DEBIAN_VERSION="stretch"
 
