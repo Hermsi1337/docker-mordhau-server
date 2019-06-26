@@ -54,7 +54,7 @@ services:
       # Peer port:
       - "7778:7778/udp"
       # Beacon port:
-      - "15000:15000"
+      - "15000:15000/udp"
       # Steam server-list port:
       - "27015:27015/udp"
     networks:
