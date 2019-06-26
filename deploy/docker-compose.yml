@@ -20,9 +20,13 @@ services:
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - MAX_PLAYERS=${MAX_PLAYERS}
     ports:
-      # Port for connections from game client
+      # Game client port:
       - "7777:7777/udp"
-      # Steam's server-list port
+      # Peer port:
+      - "7778:7778/udp"
+      # Beacon port:
+      - "15000:15000/udp"
+      # Steam server-list port:
       - "27015:27015/udp"
     networks:
       - default
