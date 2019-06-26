@@ -16,6 +16,7 @@ You can configure the initial configuration for your mordhau-server by using env
 | SERVER_VOLUME | /app | Path where the server-files are stored |
 | GAME_CLIENT_PORT | 7777 | Exposed game-client port |
 | SERVER_LIST_PORT | 27015 | Exposed server-list port |
+| BEACON_PORT | 15000 | Exposed beacon port |
 
 ### Get things running
 #### `docker-run`
