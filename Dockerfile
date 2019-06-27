@@ -15,6 +15,7 @@ ENV         LANG="en_US.UTF-8" \
             SERVER_VOLUME="/app" \
             TEMPLATE_VOLUME="/templates" \
             GAME_CLIENT_PORT="7777" \
+            PEER_PORT="7778" \
             SERVER_LIST_PORT="27015" \
             BEACON_PORT="15000" \
             STEAM_USER="steam" \
@@ -42,7 +43,7 @@ RUN         set -x && \
 
 COPY        bin/    /usr/local/bin/
 COPY        conf.d/ /templates/
-EXPOSE      ${GAME_CLIENT_PORT}/udp ${SERVER_LIST_PORT}/udp ${BEACON_PORT}/udp             
+EXPOSE      ${GAME_CLIENT_PORT}/udp ${SERVER_LIST_PORT}/udp ${BEACON_PORT}/udp ${PEER_PORT}/udp
 
 VOLUME      ["${SERVER_VOLUME}"]
 WORKDIR     ${SERVER_VOLUME}
